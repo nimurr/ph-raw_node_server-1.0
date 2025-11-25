@@ -24,7 +24,7 @@ const server: Server = http.createServer((req: IncomingMessage, res: ServerRespo
             path: req.url
         }));
     }
-//? about page route
+    //? about page route
     if (req.url == "/about" && req.method == "GET") {
         res.writeHead(200,
             { 'Content-Type': 'application/json' }
