@@ -30,10 +30,10 @@ const server: Server = http.createServer((req: IncomingMessage, res: ServerRespo
             { 'Content-Type': 'application/json' }
         )
         res.end(JSON.stringify({
+            path: req.url,
             message: 'About Page',
-            data: aboutData,
             status: 200,
-            path: req.url
+            data: aboutData,
         }));
     }
 
