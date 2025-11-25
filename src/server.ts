@@ -30,12 +30,18 @@ const server: Server = http.createServer((req: IncomingMessage, res: ServerRespo
             { 'Content-Type': 'application/json' }
         )
         res.end(JSON.stringify({
-            path: req.url,
-            message: 'About Page',
+            message: 'About Page Get is Ok',
+            success: true,
             status: 200,
             data: aboutData,
         }));
     }
+
+    //? create post api 
+    if (req.url == "/post" && req.method == "POST") {
+
+    }
+
 
 
 });
