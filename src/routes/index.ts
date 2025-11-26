@@ -8,3 +8,9 @@ addRoutes("GET", '/', (req, res) => {
     })
 })
 
+addRoutes("GET", '/about', (req, res) => {
+    sendJson(res, 200, {
+        message: 'About Page Get is Ok',
+        success: true,
+    })
+})
