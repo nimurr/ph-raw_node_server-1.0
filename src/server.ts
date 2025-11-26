@@ -1,6 +1,7 @@
 import http, { IncomingMessage, Server, ServerResponse } from "http";
 import config from "./config";
-import addRoutes, { RouteHandler, routes } from "./helpers/RouteHandler";
+import addRoutes, { RouteHandler, routes } from "./helpers/RouteHandler"; 
+import './routes'
 
 
 const aboutData = {
@@ -97,7 +98,7 @@ const server: Server = http.createServer((req: IncomingMessage, res: ServerRespo
     const method = req.method?.toUpperCase() || "";
     const path = req.url || "";
     const methodMap = routes.get(method);
-    const handler : RouteHandler | undefined = methodMap?.get(path);
+    const handler: RouteHandler | undefined = methodMap?.get(path);
 
     if (handler) {
         handler(req, res);
@@ -112,17 +113,12 @@ const server: Server = http.createServer((req: IncomingMessage, res: ServerRespo
         }))
     }
 
-    addRoutes("GET", '/', (req, res) => {
-        res.writeHead(200,
-            { 'Content-Type': 'application/json' }
-        )
-        res.end(JSON.stringify({
-            message: 'About Page Get is Ok',
-            success: true,
-            status: 200,
-            data: aboutData,
-        }));
-    })
+
+
+
+
+
+
 
 
 
