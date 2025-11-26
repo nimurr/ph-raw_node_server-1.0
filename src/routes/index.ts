@@ -1,3 +1,4 @@
+import parseBody from "../helpers/parseBody"
 import addRoutes from "../helpers/RouteHandler"
 import sendJson from "../helpers/send.json"
 
@@ -13,4 +14,9 @@ addRoutes("GET", '/about', (req, res) => {
         message: 'About Page Get is Ok',
         success: true,
     })
+})
+
+addRoutes("POST", '/api', async (req, res) => {
+    const user = await parseBody(req)
+    sendJson(res, 200, user)
 })

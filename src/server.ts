@@ -1,15 +1,16 @@
 import http, { IncomingMessage, Server, ServerResponse } from "http";
 import config from "./config";
-import addRoutes, { RouteHandler, routes } from "./helpers/RouteHandler"; 
+import addRoutes, { RouteHandler, routes } from "./helpers/RouteHandler";
 import './routes'
 
 
-const aboutData = {
-    company: "My Company",
-    address: "My Address",
-    location: "Dhaka Bangladesh",
-    phone: "1234567890"
-}
+//? Demo Data for  about page
+// const aboutData = {
+//     company: "My Company",
+//     address: "My Address",
+//     location: "Dhaka Bangladesh",
+//     phone: "1234567890"
+// }
 
 const server: Server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
     console.log('server is running....');
@@ -112,14 +113,6 @@ const server: Server = http.createServer((req: IncomingMessage, res: ServerRespo
             status: 404
         }))
     }
-
-
-
-
-
-
-
-
 
 
 });
