@@ -50,6 +50,7 @@ const server: Server = http.createServer((req: IncomingMessage, res: ServerRespo
         }))
     }
 
+    //? create post api for users
     if (req.url == "/api/users" && req.method == "POST") {
         // const user = {
         //     id: 1,
