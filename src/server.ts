@@ -38,9 +38,58 @@ const server: Server = http.createServer((req: IncomingMessage, res: ServerRespo
     }
 
     //? create post api 
-    if (req.url == "/post" && req.method == "POST") {
+    if (req.url == "/api" && req.method == "GET") {
+        res.writeHead(200,
+            { 'Content-Type': 'application/json' }
+        )
+        res.end(JSON.stringify({
+            message: 'Health Status is Ok',
+            success: true,
+            status: 200,
+            data: aboutData,
+        }))
+    }
+
+    if (req.url == "/api/users" && req.method == "POST") {
+        // const user = {
+        //     id: 1,
+        //     name: "John Doe",
+        //     email: "3oXoZ@example.com",
+        //     address: "Dhaka Bangladesh"
+        // }
+        // res.writeHead(200,
+        //     { 'Content-Type': 'application/json' }
+        // )
+        // res.end(JSON.stringify(user))
+
+        // let body = '';
+        // req.on('data', chunk => {
+        //     body += chunk;
+        // });
+        // req.on('end', () => {
+        //     const user = JSON.parse(body);
+        //     res.writeHead(200,
+        //         { 'Content-Type': 'application/json' }
+        //     )
+        //     res.end(JSON.stringify(user))
+        // });
+
+
+        let body = '';
+        req.on("data", chunk => {
+            body += chunk;
+        })
+        req.on("end", () => {
+            const user = JSON.parse(body);
+            res.writeHead(200,
+                { 'Content-Type': 'application/json' }
+            )
+            res.end(JSON.stringify(user))
+        })
+
 
     }
+
 
 
 
